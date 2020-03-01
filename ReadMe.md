@@ -1050,9 +1050,188 @@ public class CatTest {
 - 构造方法无返回值
 - 只能在对象实例化时调用
 
+##### 6.this 关键字， 当前对象， 谁调用就是谁
+
+最好不使用和构造方法同名的方法
+
+```java
+package com.imooc.animal;
+
+import sun.print.resources.serviceui;
+
+/**
+ * 宠物猫类
+ * Cat
+ */
+public class Cat {
+    // 属性：昵称，年龄， 体重， 品种
+    String name;  // 默认值null
+    int month;// 默认值0
+    double weight;// 默认值0.0
+    String species;
+
+    public Cat() {
+        System.out.println("我是无参构造方法");
+    }
+    public Cat(String name) {
+        System.out.println("我是有参构造方法");
+    }
+    public Cat(String name, int month, double weight, String species) {
+        this(); // 调用自己的无参构造方法
+        // 就近原则
+        this.name=name;
+        this.month = month;
+        this.weight=weight;
+        this.species=species;
+    }
+
+    // 方法， 跑， 吃
+    public void run() {
+        System.out.println("小猫快跑");
+    }
+
+    public void run(String name) {
+        System.out.println(name+"快跑");
+    }
+
+    public void eatFish() {
+        System.out.println("小猫吃鱼");
+        
+    }
+
+    public static void main(String[] args) {
+        
+    }
+}
+```
+
 
 
 ### 2.封装
+
+因此对象的
+
+#### 1.方法封装
+
+```java
+package com.imooc.animal;
+
+import sun.print.resources.serviceui;
+
+/**
+ * 宠物猫类
+ * Cat
+ */
+public class Cat {
+    // 属性：昵称，年龄， 体重， 品种
+    // private 只能在当前类内访问
+    private String name;  // 默认值null
+    private int month;// 默认值0
+    private double weight;// 默认值0.0
+    private String species;
+
+    public Cat() {
+        System.out.println("我是无参构造方法");
+    }
+    public Cat(String name) {
+        System.out.println("我是有参构造方法");
+    }
+    public Cat(String name, int month, double weight, String species) {
+        this(); // 调用自己的无参构造方法
+        // 就近原则
+        this.name=name;
+        this.month = month;
+        this.weight=weight;
+        this.species=species;
+    }
+    public setName(String name) {
+        this.name=name;
+    }
+    public String getName(){
+        return this.name;
+    }
+
+    // 方法， 跑， 吃
+    public void run() {
+        System.out.println("小猫快跑");
+    }
+
+    public void run(String name) {
+        System.out.println(name+"快跑");
+    }
+
+    public void eatFish() {
+        System.out.println("小猫吃鱼");
+        
+    }
+
+    public static void main(String[] args) {
+        
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        if (month<=0){
+            System.out.println("输入信息错误， 年龄必须大于0");
+        }
+        this.month = month;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+}
+```
+
+
+
+#### 2.创建包
+
+```java
+package com.imooc.animal;  // 定义当前文件存放在这个包
+```
+
+#### 3.导入包
+
+```java
+package com.imooc.test;  // 定义包
+import com.imooc.animal.Cat;  // 导入包
+import com.imooc.* ; // 只能找到直接的包名
+
+/**
+ * Test
+ */
+public class Test {
+    public static void name() {
+        Cat cat = new Cat();
+        // 直接导入 com.imooc.animal.CatTest
+        com.imooc.animal.CatTest ct = new com.imooc.animal.CatTest();
+    }
+
+    
+}
+```
+
+#### 4.static 关键字， 静态信息
+
+
+
+
 
 
 

@@ -1,14 +1,12 @@
 package com.imooc.animal;
 
-
 /**
- * 宠物猫类
- * Cat
+ * Dog
  */
-public class Cat extends Animal {
-    private double weight; 
+public class Dog extends Animal{
+    private double weight;
 
-    public Cat() {
+    public Dog() {
     }
 
     public double getWeight() {
@@ -18,5 +16,11 @@ public class Cat extends Animal {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
+    public void run() {
+        System.out.println(this.getName()+"在奔跑");
+    }
+    
+
     
 }

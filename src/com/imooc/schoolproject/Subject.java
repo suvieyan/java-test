@@ -8,6 +8,7 @@ public class Subject {
     private String subjectName;
     private String subjectNo;
     private int subjectLife;
+    private Student[] myStudents;
 
     public Subject() {
 
@@ -46,6 +47,25 @@ public class Subject {
 
     public void setSubjectLife(int subjectLife) {
         this.subjectLife = subjectLife;
+    }
+
+    public Subject(String subjectName, String subjectNo, int subjectLife, Student[] myStudents) {
+        this.subjectName = subjectName;
+        this.subjectNo = subjectNo;
+        this.subjectLife = subjectLife;
+        this.myStudents = myStudents;
+    }
+
+    public Student[] getMyStudents() {
+        return myStudents;
+    }
+
+    public void setMyStudents(Student[] myStudents) {
+        this.myStudents = myStudents;
+    }
+
+    public void addStudent(Student student) {
+        
     }
 
 }
